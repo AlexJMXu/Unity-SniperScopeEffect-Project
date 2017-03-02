@@ -14,6 +14,10 @@ public class Scope : MonoBehaviour {
 	public float scopedFOV = 15f;
 	private float normalFOV;
 
+	void Start() {
+		normalFOV = mainCamera.fieldOfView;
+	}
+
 	void Update () {
 		if (Input.GetButtonDown ("Fire2")) {
 			isScoped = !isScoped;
@@ -39,7 +43,6 @@ public class Scope : MonoBehaviour {
 		scopeOverlay.SetActive(true);
 		weaponCamera.SetActive(false);
 
-		normalFOV = mainCamera.fieldOfView;
 		mainCamera.fieldOfView = scopedFOV;
 	}
 }
